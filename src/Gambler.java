@@ -12,29 +12,31 @@ public class Gambler {
         int StackIncrease = 150;
         int StackDecrease = 50;
         int win = 0;
+        int dayswin = 0, daysloss = 0;
+
         System.out.println("Welcome To Gambling");
         System.out.println("Every Day Stack is " + EverydayStack);
         System.out.println("Betting price is " + BetStack);
-        for (int day = 1; day <= 20; day++) {
+        for (int day = 1; day <= 30; day++) {
 
             while (EverydayStack > StackDecrease && EverydayStack < StackIncrease) {
                 double rand = Math.random();
-
-                if (rand < 0.5) {
+                if (rand > 0.5) {
                     System.out.println("win the bet and stack is " + (EverydayStack += BetStack));
                     win = win + 50;
+                    dayswin = dayswin + 1;
                     break;
                 } else {
                     System.out.println("Loss the bet and stack is " + (EverydayStack -= BetStack));
                     win = win - 50;
+                    daysloss = daysloss + 1;
                     break;
                 }
             }
-
-            System.out.println("winning amount is " + win);
-
         }
-        System.out.println(" final winning amount is " + win);
+        System.out.println("Total winning in a month is  " + dayswin + " days");
+        System.out.println("Total loss in a month is  " + daysloss + " days");
+        System.out.println("Total  Won amount in a Month " + win);
 
     }
 }
