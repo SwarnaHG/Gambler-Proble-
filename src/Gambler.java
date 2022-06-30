@@ -1,28 +1,31 @@
-public class Gambler{
-    /**
-     * initialize stack is 100
-     * initialize bet is 1
-     * checking wheather win the bet or lose
-     * if win then bet will increase by 1
-     * if decrease then bet will decrease by 1
-     *
-     */
+
+
+import java.util.Random;
+
+public class Gambler {
     static int EverydayStack = 100;
     static int BetStack = 1;
 
     public static void main(String[] args) {
+        int StackIncrease = 150;
+        int StackDecrease = 50;
+        int win =0;
         System.out.println("Welcome To Gambling");
         System.out.println("Every Day Stack is " + EverydayStack);
         System.out.println("Betting price is " + BetStack);
 
-        double Bet = Math.random();
-        if (Bet < 0.5) {
 
-            System.out.println("win the bet" + (EverydayStack += BetStack));
-        } else {
-            System.out.println("Floss the bet " + (EverydayStack -= BetStack));
+
+        while(EverydayStack > StackDecrease && EverydayStack < StackIncrease) {
+            double rand = Math.random();
+
+            if(rand < 0.5) {
+                //  System.out.println("Bet Win");
+                System.out.println("Win and amount is "+(EverydayStack +=BetStack));
+            }else {
+                //  System.out.println("Bet Loss");
+                System.out.println("Loss and amount is "+(EverydayStack -= BetStack));
+            }
         }
-
     }
-
 }
